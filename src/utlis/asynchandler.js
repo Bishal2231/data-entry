@@ -3,7 +3,7 @@
 
 export const asynchandler=(requestHandler)=>{
     return(req,res,next)=> {
-        Promise.resolve(asynchandler(req,res,next)).catch((err)=>{
+        Promise.resolve(requestHandler(req,res,next)).catch((err)=>{
             next(err)
         })
     }
